@@ -2,5 +2,15 @@
 {block title}To-do List{endblock}
 
 {% block content %}
-<h1>Hello world! I love you</h1>
+    {% if allitems %}
+         <table class= "table table-striped table table-bordered">
+             {% for work in allitems %}
+                <tr>
+                   <td>{{work.item}}</td>
+                   <td><center>{{work.date}}</center></td>
+                   <td><center>{{work.completed}}</center></td>
+                <tr>
+              {% endfor %}
+         <table>
+    {% endif %}
 {% endblock %}
