@@ -10,6 +10,7 @@ def home(request):
         if form.is_valid():
             form.save() 
             all_items=List.objects.all
+            messages.success(request,'Message has been added to list')
             return render(request,'home.html',{'allitems':all_items})
     else:
          #Reading the database
