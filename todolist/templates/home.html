@@ -22,12 +22,14 @@
                      <td><strike>{{work.item}}</strike></td>
                      <td><center>{{work.date}}</center></td>
                      <td><center>{{work.completed}}</center></td>
+                     <td><center><a href="{% url 'delete' work.id %}">Delete</a></center></td>
                     <tr>
                 {% else %}
                     <tr>
                      <td>{{work.item}}</td>
                      <td><center>{{work.date}}</center></td>
                      <td><center>{{work.completed}}</center></td>
+                     <td><center><a href="{% url 'delete' work.id %}">Delete</a></center></td>
                     <tr> 
                 {% endif %}       
               {% endfor %}
