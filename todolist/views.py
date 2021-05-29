@@ -36,13 +36,13 @@ def change_status(request,id):
     return redirect('home')
 def edit(request,id):
     if request.method=='POST':
-        if request.method=='POST':
-            form=Listview(request.POST or None)
-            if form.is_valid():
-                form.save() 
-                all_items=List.objects.all
-                messages.success(request,'Item Edited Successfully')
-                return render(request,'home.html',{'allitems':all_items})
+        item=List.objects.get(pk=id)
+        form=Listview(request.POST or None,instance=item)
+        if form.is_valid():
+            form.save() 
+            all_items=List.objects.all
+            messages.success(request,'Item Edited Successfully')
+            return redirect('home')
     else:
-        item=List.objects.item
+        item=List.objects.get(pk=id)
         return render(request,'edit.html',{'item':item})

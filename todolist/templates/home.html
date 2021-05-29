@@ -19,14 +19,14 @@
              {% for work in allitems %}
                 {% if work.completed %}
                     <tr class='table-primary'>
-                     <td><strike>{{work.item}}</strike></td>
+                     <td><strike><a href="{% url 'edit' work.id %}">{{work.item}}</a></strike></td>
                      <td><center>{{work.date}}</center></td>
                      <td><center><a href="{% url 'changed' work.id %}">Completed</a></center></td>
                      <td><center><a href="{% url 'delete' work.id %}">Delete</a></center></td>
                     <tr>
                 {% else %}
                     <tr>
-                     <td>{{work.item}}</td>
+                     <td><a href="{% url 'edit' work.id %}">{{work.item}}</a></td>
                      <td><center>{{work.date}}</center></td>
                      <td><center><a href="{% url 'changed' work.id %}">Incomplete</a></center></td>
                      <td><center><a href="{% url 'delete' work.id %}">Delete</a></center></td>
