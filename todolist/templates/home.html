@@ -3,13 +3,21 @@
 
 {% block content %}
     {% if allitems %}
-         <table class= "table table-striped table table-bordered">
+         <table class= "table table-striped table-success table-bordered">
              {% for work in allitems %}
-                <tr>
-                   <td>{{work.item}}</td>
-                   <td><center>{{work.date}}</center></td>
-                   <td><center>{{work.completed}}</center></td>
-                <tr>
+                {% if work.completed %}
+                    <tr class='table-primary'>
+                     <td class="striker">{{work.item}}</td>
+                     <td><center>{{work.date}}</center></td>
+                     <td><center>{{work.completed}}</center></td>
+                    <tr>
+                {% else %}
+                    <tr>
+                     <td>{{work.item}}</td>
+                     <td><center>{{work.date}}</center></td>
+                     <td><center>{{work.completed}}</center></td>
+                    <tr> 
+                {% endif %}       
               {% endfor %}
          <table>
     {% endif %}
