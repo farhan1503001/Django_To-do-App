@@ -25,3 +25,11 @@ def delete(request,id):
     #Showing message after delete
     messages.success(request,'Item Deleted From List')
     return redirect('home')
+def change_status(request,id):
+    item=List.objects.get(pk=id)
+    if item['completed']:
+        item['completed']=False
+    else:
+        item['completed']=True
+    messages.success(request,'Item Deleted From List')
+    return redirect('home')
