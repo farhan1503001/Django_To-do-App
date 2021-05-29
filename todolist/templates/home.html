@@ -7,7 +7,7 @@
              {% for work in allitems %}
                 {% if work.completed %}
                     <tr class='table-primary'>
-                     <td class="striker">{{work.item}}</td>
+                     <td><strike>{{work.item}}</strike></td>
                      <td><center>{{work.date}}</center></td>
                      <td><center>{{work.completed}}</center></td>
                     <tr>
